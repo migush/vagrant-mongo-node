@@ -22,6 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", ip: "192.168.10.200"
   config.vm.provision :shell, path: "setup.sh"
 
+  # nodejs server
+  config.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "127.0.0.1"
   # mongodb
   config.vm.network "forwarded_port", guest: 27017, host: 27017, host_ip: "127.0.0.1"
   # share folder
